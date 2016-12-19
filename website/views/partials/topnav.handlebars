@@ -1,0 +1,41 @@
+<nav class="navbar-inverse navbar-static-top" style="position: fixed;width: 1280px;" >
+    <div class="container-fluid">
+    <div class="navbar-header" style="margin-left:20px">
+        <a href="/home"><img class="navbar-brand" src="/public/img/logo.png" alt=""></a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li {{#if home}}class="active"{{/if}}><a href="/home">Home</a></li>
+            <li {{#if price}}class="active"{{/if}}><a href="/price">Price</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    More <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/account">Account</a></li>
+                    <li><a href="/order">Order</a></li>
+                    <li><a href="/help">Help</a></li>
+                    {{#if user}}
+                    <li class="divider"></li>
+                    <li><a href="/login/logout">logout</a></li>
+                    {{/if}}
+                    {{!--<li class="divider"></li>
+                    <li><a href="#">另一个分离的链接</a></li>--}}
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <ul class="nav navbar-nav navbar-right"> 
+        {{#if user}}
+            {{#if user.profile.name}}
+                <li><a href="/account">welcome, {{user.profile.name}}</a></li>
+            {{else}}
+                <li><a href="/account">welcome, {{user.profile.email}}</a></li>
+            {{/if}} 
+        {{else}}
+        <li {{#if register}}class="active"{{/if}}><a href="Register"><span class="glyphicon glyphicon-user"></span> Register</a></li> 
+        <li {{#if login}}class="active"{{/if}}><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> 
+        {{/if}}
+    </ul> 
+    </div>
+</nav>
